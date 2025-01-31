@@ -1,0 +1,9 @@
+{
+	"block.vitapunk.nickel_ore": "Nickel Ore",
+	"block.vitapunk.deepslate_nickel_ore": "Deepslate Nickel Ore",
+
+	"item.vitapunk.raw_nickel": "Raw Nickel",
+	"item.vitapunk.nickel_ingot": "Nickel Ingot",
+	"item.vitapunk.palladium_ingot": "Palladium Ingot",
+	"item.vitapunk.mercury_ingot": "Mercury Ingot"
+}
