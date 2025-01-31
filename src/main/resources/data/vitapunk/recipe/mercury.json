@@ -1,0 +1,14 @@
+{
+	"type": "vitapunk:transmutation",
+
+	"ingredient": "vitapunk:nickel",
+	"amount": 3,
+
+	"primary_humor": "vitapunk:phleghm",
+	"secondary_humors": [
+		"vitapunk:blood",
+		"vitapunk:yellow_bile"
+	],
+
+	"result": "vitapunk:mercury"
+}
