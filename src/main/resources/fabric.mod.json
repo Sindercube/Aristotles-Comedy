@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "vitapunk",
+	"id": "aristotles_comedy",
 	"version": "${version}",
-	"name": "Vitapunk",
+	"name": "aristotles_comedy",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"Me!"
@@ -11,34 +11,30 @@
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "CC0-1.0",
-	"icon": "assets/vitapunk/icon.png",
+	"license": "LGPL-3.0+CC-BY-SA-3.0",
+
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.sindercube.vitapunk.Vitapunk"
+			"com.sindercube.aristotlesComedy.AristotlesComedy"
 		],
 		"client": [
-			"com.sindercube.vitapunk.VitapunkClient"
+			"com.sindercube.aristotlesComedy.AristotlesComedyClient"
 		],
 		"fabric-datagen": [
-			"com.sindercube.vitapunk.VitapunkDataGenerator"
+			"com.sindercube.aristotlesComedy.AristotlesComedyDataGenerator"
 		]
 	},
 	"mixins": [
-		"vitapunk.mixins.json",
+		"aristotles_comedy.mixins.json",
 		{
-			"config": "vitapunk.client.mixins.json",
+			"config": "aristotles_comedy.client.mixins.json",
 			"environment": "client"
 		}
 	],
-	"depends": {
-		"fabricloader": ">=0.16.10",
-		"minecraft": "~1.21.1",
-		"java": ">=21",
-		"fabric-api": "*"
-	},
 	"suggests": {
-		"another-mod": "*"
+		"fabricloader": "*",
+		"fabric-api": "*",
+		"minecraft": "~1.21.1"
 	}
 }

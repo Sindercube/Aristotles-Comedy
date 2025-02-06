@@ -1,0 +1,68 @@
+{
+	"parent": "aristotles_comedy:alchemy/first_heartbeat",
+	"display": {
+		"icon": {
+			"id": "aristotles_comedy:mercury_ingot"
+		},
+		"title": {
+			"translate": "advancements.aristotles_comedy.alchemy.transmute_all_ingots.title"
+		},
+		"description": {
+			"translate": "advancements.aristotles_comedy.alchemy.transmute_all_ingots.description"
+		},
+		"frame": "challenge"
+	},
+	"criteria": {
+		"transmute_gold": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"minecraft:gold_ingot"
+						]
+					}
+				]
+			}
+		},
+		"transmute_palladium": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"aristotles_comedy:palladium_ingot"
+						]
+					}
+				]
+			}
+		},
+		"transmute_platinum": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"aristotles_comedy:platinum_ingot"
+						]
+					}
+				]
+			}
+		},
+		"transmute_mercury": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"aristotles_comedy:mercury_ingot"
+						]
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"experience": 100
+	}
+}

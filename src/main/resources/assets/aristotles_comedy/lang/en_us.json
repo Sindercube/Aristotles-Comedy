@@ -1,0 +1,20 @@
+{
+	"advancements.aristotles_comedy.alchemy.title": "Alchemy",
+	"advancements.aristotles_comedy.alchemy.description": "idk man something funny",
+
+	"advancements.aristotles_comedy.alchemy.transmute_all_ingots.title": "Full Metal Alchemist",
+	"advancements.aristotles_comedy.alchemy.transmute_all_ingots.description": "Transmute one of each common metal into a noble metal inside of a Philosopher's Stone",
+
+	"block.aristotles_comedy.nickel_ore": "Nickel Ore",
+	"block.aristotles_comedy.deepslate_nickel_ore": "Deepslate Nickel Ore",
+	"block.aristotles_comedy.nether_lead_ore": "Nether Lead Ore",
+
+	"item.aristotles_comedy.raw_nickel": "Raw Nickel",
+	"item.aristotles_comedy.nickel_ingot": "Nickel Ingot",
+	"item.aristotles_comedy.palladium_ingot": "Palladium Ingot",
+	"item.aristotles_comedy.mercury_ingot": "Mercury Ingot",
+	"item.aristotles_comedy.raw_lead": "Raw Lead",
+	"item.aristotles_comedy.lead_ingot": "Lead Ingot",
+
+	"death.modifier.spirit_projection": "%s, spiritually"
+}
