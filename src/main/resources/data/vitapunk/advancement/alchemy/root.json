@@ -6,9 +6,9 @@
 	},
 	"display": {
 		"announce_to_chat": false,
-		"background": "minecraft:textures/gui/advancements/backgrounds/husbandry.png",
+		"background": "vitapunk:textures/gui/advancements/backgrounds/alchemy.png",
 		"description": {
-			"translate": "advancements.husbandry.root.description"
+			"translate": "advancements.vitapunk.alchemy.description"
 		},
 		"icon": {
 			"count": 1,
@@ -16,13 +16,12 @@
 		},
 		"show_toast": false,
 		"title": {
-			"translate": "advancements.husbandry.root.title"
+			"translate": "advancements.vitapunk.alchemy.title"
 		}
 	},
 	"requirements": [
 		[
 			"consumed_item"
 		]
-	],
-	"sends_telemetry_event": true
+	]
 }

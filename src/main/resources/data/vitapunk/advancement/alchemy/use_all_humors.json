@@ -1,4 +1,29 @@
 {
 	"parent": "vitapunk:alchemy/first_heartbeat",
+	"criteria": {
+		"consumed_item": {
+			"trigger": "minecraft:consume_item"
+		}
+	},
+	"display": {
+		"announce_to_chat": false,
+		"background": "vitapunk:textures/gui/advancements/backgrounds/alchemy.png",
+		"description": {
+			"translate": "advancements.vitapunk.alchemy.description"
+		},
+		"icon": {
+			"count": 1,
+			"id": "minecraft:hay_block"
+		},
+		"show_toast": false,
+		"title": {
+			"translate": "advancements.vitapunk.alchemy.title"
+		}
+	},
+	"requirements": [
+		[
+			"consumed_item"
+		]
+	],
 	"hidden": true
 }

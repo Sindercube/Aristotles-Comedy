@@ -21,9 +21,14 @@ public class Vitapunk implements ModInitializer {
 		ModRegistryKeys.init();
 		ModRegistries.init();
 
+		ModRecipeTypes.init();
+		ModRecipeSerializers.init();
+
 		ModHumors.init();
 		ModBlocks.init();
 		ModItems.init();
+
+		ModPlacedFeatures.init();
 	}
 
 }

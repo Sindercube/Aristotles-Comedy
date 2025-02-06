@@ -1,7 +1,9 @@
 {
 	"type": "vitapunk:transmutation",
 
-	"ingredient": "vitapunk:nickel",
+	"ingredient": {
+		"id": "vitapunk:nickel_ingot"
+	},
 	"amount": 3,
 
 	"primary_humor": "vitapunk:phleghm",
@@ -10,5 +12,7 @@
 		"vitapunk:yellow_bile"
 	],
 
-	"result": "vitapunk:mercury"
+	"result": {
+		"id": "vitapunk:mercury_ingot"
+	}
 }

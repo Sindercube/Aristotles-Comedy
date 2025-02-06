@@ -1,22 +1,46 @@
 package com.sindercube.vitapunk.content.recipe;
 
-import com.sindercube.vitapunk.content.recipe.input.TransmutationRecipeInput;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.sindercube.vitapunk.registry.ModRecipeTypes;
+import com.sindercube.vitapunk.registry.ModRegistries;
+import com.sindercube.vitapunk.util.CodecRecipeSerializer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.*;
+import net.minecraft.recipe.input.RecipeInput;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.world.World;
 
-public class TransmutationRecipe implements Recipe<TransmutationRecipeInput> {
+public record TransmutationRecipe (
+	Ingredient ingredient,
+	ItemStack result
+) implements Recipe<RecipeInput> {
+
+	public static final MapCodec<TransmutationRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+		Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("ingredient").forGetter(TransmutationRecipe::ingredient),
+		ItemStack.CODEC.fieldOf("result").forGetter(TransmutationRecipe::result)
+	).apply(instance, TransmutationRecipe::new));
+
+	public static final RecipeSerializer<TransmutationRecipe> SERIALIZER = new CodecRecipeSerializer<>(CODEC);
+
+	@Override
+	public RecipeType<?> getType() {
+		return ModRecipeTypes.TRANSMUTATION;
+	}
+
+	@Override
+	public RecipeSerializer<?> getSerializer() {
+		return SERIALIZER;
+	}
+
 
     @Override
-    public boolean matches(TransmutationRecipeInput input, World world) {
+    public boolean matches(RecipeInput input, World world) {
         return false;
     }
 
     @Override
-    public ItemStack craft(TransmutationRecipeInput input, RegistryWrapper.WrapperLookup lookup) {
+    public ItemStack craft(RecipeInput input, RegistryWrapper.WrapperLookup lookup) {
         return null;
     }
 
@@ -27,16 +51,6 @@ public class TransmutationRecipe implements Recipe<TransmutationRecipeInput> {
 
     @Override
     public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
-        return null;
-    }
-
-    @Override
-    public RecipeSerializer<?> getSerializer() {
-        return null;
-    }
-
-    @Override
-    public RecipeType<?> getType() {
         return null;
     }
 
