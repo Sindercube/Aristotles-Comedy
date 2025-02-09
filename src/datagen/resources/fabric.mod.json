@@ -5,5 +5,8 @@
 
 	"entrypoints": {
 		"fabric-datagen": [ "com.sindercube.aristotlesComedy.datagen.AristotlesComedyDataGenerator" ]
-	}
+	},
+	"mixins": [
+		"aristotles_comedy.datagen.mixins.json"
+	]
 }

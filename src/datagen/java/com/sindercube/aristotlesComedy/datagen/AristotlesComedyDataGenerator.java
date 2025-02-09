@@ -12,7 +12,9 @@ public class AristotlesComedyDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator generator) {
 		FabricDataGenerator.Pack pack = generator.createPack();
-		pack.addProvider(ModLanguageProvider::new);
+		try {
+			pack.addProvider(ModLanguageProvider::new);
+		} catch (Exception ignored) {}
 		pack.addProvider(ModModelProvider::new);
 	}
 

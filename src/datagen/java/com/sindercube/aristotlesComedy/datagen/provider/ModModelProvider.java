@@ -31,13 +31,12 @@ public class ModModelProvider extends FabricModelProvider {
 
 	public void generateBlockModel(BlockStateModelGenerator generator, RegistryEntry<Block> entry) {
 		Block block = entry.value();
-		Class<? extends Block> blockClass = block.getClass();
 
-		if (blockClass == AnvilBlock.class) {
+		if (block instanceof AnvilBlock) {
 			generator.registerAnvil(block);
-		} else if (blockClass == SnowBlock.class) {
+		} else if (block instanceof SnowBlock) {
 			this.generateLayeredBlockModels(generator, entry);
-		} else if (blockClass == Block.class) {
+		} else if (block.getClass() == Block.class) {
 			generator.registerSimpleCubeAll(block);
 			generator.registerParentedItemModel(block, ModelIds.getBlockModelId(block));
 		}
@@ -62,32 +61,19 @@ public class ModModelProvider extends FabricModelProvider {
 
 	@Override
 	public void generateItemModels(ItemModelGenerator generator) {
-//		Registries.ITEM.streamEntries()
-//			.filter(AristotlesComedyDataGenerator::ownsRegistry)
-//			.forEach(entry -> this.generateItemModel(generator, entry));
+		Registries.ITEM.streamEntries()
+			.filter(AristotlesComedyDataGenerator::ownsRegistry)
+			.forEach(entry -> this.generateItemModel(generator, entry));
 	}
 
 	public void generateItemModel(ItemModelGenerator generator, RegistryEntry<Item> entry) {
 		Item item = entry.value();
-		Class<? extends Item> itemClass = item.getClass();
 
-		Model model;
-		if (itemClass == ToolItem.class) {
-			model = Models.HANDHELD;
-		} else if (itemClass == BlockItem.class) {
-			return;
-		} else {
-			model = Models.GENERATED;
+		if (item instanceof ToolItem) {
+			generator.register(item, Models.HANDHELD);
+		} else if (item.getClass() == Item.class) {
+			generator.register(item, Models.GENERATED);
 		}
-		generator.register(item, model);
-
-//		Model model = switch (item) {
-//			case ToolItem t -> Models.HANDHELD;
-//			case BlockItem b -> {
-//				yield Models.TEMPLATE_COMMAND_BLOCK;
-//			}
-//			default -> Models.GENERATED;
-//		};
 	}
 
 }

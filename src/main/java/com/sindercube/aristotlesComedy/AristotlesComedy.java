@@ -30,8 +30,8 @@ public class AristotlesComedy implements ModInitializer {
 		ModItems.init();
 		ModEntityTypes.init();
 
-		ModBiomes.init();
 		ModPlacedFeatures.init();
+		ModBiomes.init();
 	}
 
 }

@@ -12,6 +12,7 @@ public class ModBiomes {
 	public static void init() {
 		NetherBiomes.addNetherBiome(
 			ASHFIELDS,
+//			RegistryKey.of(RegistryKeys.BIOME, AristotlesComedy.of("ashfields")),
 			MultiNoiseUtil.createNoiseHypercube(-1.0F, -0.5F, 0.0F, 0.5F, 0.0F, 0.5F, 0.0F)
 		);
 	}
