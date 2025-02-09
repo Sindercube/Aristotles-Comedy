@@ -16,7 +16,7 @@ public class PhilosopherStoneBlock extends BlockWithEntity {
 
 	public static BooleanProperty ALIVE = BooleanProperty.of("alive");
 
-	protected PhilosopherStoneBlock(Settings settings) {
+	public PhilosopherStoneBlock(Settings settings) {
 		super(settings);
 		this.setDefaultState(this.stateManager.getDefaultState().with(ALIVE, false));
 	}

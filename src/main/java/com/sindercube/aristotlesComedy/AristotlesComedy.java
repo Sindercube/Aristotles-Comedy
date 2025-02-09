@@ -1,5 +1,6 @@
 package com.sindercube.aristotlesComedy;
 
+import com.sindercube.aristotlesComedy.registry.ModBiomes;
 import com.sindercube.aristotlesComedy.registry.*;
 import net.fabricmc.api.ModInitializer;
 
@@ -27,7 +28,9 @@ public class AristotlesComedy implements ModInitializer {
 		ModHumors.init();
 		ModBlocks.init();
 		ModItems.init();
+		ModEntityTypes.init();
 
+		ModBiomes.init();
 		ModPlacedFeatures.init();
 	}
 

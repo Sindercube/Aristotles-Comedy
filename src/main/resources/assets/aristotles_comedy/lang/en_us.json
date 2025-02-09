@@ -2,19 +2,19 @@
 	"advancements.aristotles_comedy.alchemy.title": "Alchemy",
 	"advancements.aristotles_comedy.alchemy.description": "idk man something funny",
 
+	"advancements.aristotles_comedy.alchemy.first_heartbeat.title": "First Heartbeat",
+	"advancements.aristotles_comedy.alchemy.first_heartbeat.description": "Resuscitate a Philosopher's Stone by filling it up with humors",
+
 	"advancements.aristotles_comedy.alchemy.transmute_all_ingots.title": "Full Metal Alchemist",
 	"advancements.aristotles_comedy.alchemy.transmute_all_ingots.description": "Transmute one of each common metal into a noble metal inside of a Philosopher's Stone",
 
-	"block.aristotles_comedy.nickel_ore": "Nickel Ore",
-	"block.aristotles_comedy.deepslate_nickel_ore": "Deepslate Nickel Ore",
-	"block.aristotles_comedy.nether_lead_ore": "Nether Lead Ore",
+	"advancements.aristotles_comedy.alchemy.obtain_philosophers_stone.title": "Magnum Opus",
+	"advancements.aristotles_comedy.alchemy.obtain_philosophers_stone.description": "Complete the Great Work and achieve perfection",
 
-	"item.aristotles_comedy.raw_nickel": "Raw Nickel",
-	"item.aristotles_comedy.nickel_ingot": "Nickel Ingot",
-	"item.aristotles_comedy.palladium_ingot": "Palladium Ingot",
-	"item.aristotles_comedy.mercury_ingot": "Mercury Ingot",
-	"item.aristotles_comedy.raw_lead": "Raw Lead",
-	"item.aristotles_comedy.lead_ingot": "Lead Ingot",
+	"advancements.aristotles_comedy.alchemy.cheat_philosophers_stone.title": "Opus Minus",
+	"advancements.aristotles_comedy.alchemy.cheat_philosophers_stone.description": "Complete the Great Work and achieve perfection... by doing nothing at all",
+
+	"entity.aristotles_comedy.ash_bunny": "Ash Bunny",
 
 	"death.modifier.spirit_projection": "%s, spiritually"
 }

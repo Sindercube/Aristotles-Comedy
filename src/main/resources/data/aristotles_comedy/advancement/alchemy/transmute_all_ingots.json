@@ -1,6 +1,8 @@
 {
 	"parent": "aristotles_comedy:alchemy/first_heartbeat",
+
 	"display": {
+		"frame": "goal",
 		"icon": {
 			"id": "aristotles_comedy:mercury_ingot"
 		},
@@ -9,9 +11,9 @@
 		},
 		"description": {
 			"translate": "advancements.aristotles_comedy.alchemy.transmute_all_ingots.description"
-		},
-		"frame": "challenge"
+		}
 	},
+
 	"criteria": {
 		"transmute_gold": {
 			"trigger": "minecraft:inventory_changed",
@@ -62,6 +64,7 @@
 			}
 		}
 	},
+
 	"rewards": {
 		"experience": 100
 	}

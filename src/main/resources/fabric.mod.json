@@ -15,15 +15,8 @@
 
 	"environment": "*",
 	"entrypoints": {
-		"main": [
-			"com.sindercube.aristotlesComedy.AristotlesComedy"
-		],
-		"client": [
-			"com.sindercube.aristotlesComedy.AristotlesComedyClient"
-		],
-		"fabric-datagen": [
-			"com.sindercube.aristotlesComedy.AristotlesComedyDataGenerator"
-		]
+		"main": [ "com.sindercube.aristotlesComedy.AristotlesComedy" ],
+		"client": [ "com.sindercube.aristotlesComedy.client.AristotlesComedyClient" ]
 	},
 	"mixins": [
 		"aristotles_comedy.mixins.json",
@@ -32,6 +25,8 @@
 			"environment": "client"
 		}
 	],
+	"accessWidener": "aristotles_comedy.accesswidener",
+
 	"suggests": {
 		"fabricloader": "*",
 		"fabric-api": "*",

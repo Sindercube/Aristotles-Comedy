@@ -2,16 +2,18 @@ plugins {
 	id 'fabric-loom' version '1.9-SNAPSHOT'
 }
 
+base.archivesName = project.mod_id
 version = project.mod_version
-group = project.maven_group
+group = project.mod_group
 
-base {
-	archivesName = project.archives_base_name
+repositories {
+	mavenLocal {
+		content { includeGroup "com.sindercube.iconic" }
+	}
 }
 
-repositories {}
-
 loom {
+	accessWidenerPath = file("src/main/resources/aristotles_comedy.accesswidener")
 	splitEnvironmentSourceSets()
 	mods {
 		"aristotles_comedy" {
@@ -24,6 +26,7 @@ loom {
 fabricApi {
 	configureDataGeneration {
 		client = true
+		createSourceSet = true
 	}
 }
 
@@ -32,6 +35,9 @@ dependencies {
 	mappings "net.fabricmc:yarn:$yarn_mappings:v2"
 	modImplementation "net.fabricmc:fabric-loader:$loader_version"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:$fabric_version"
+
+	include modImplementation("com.sindercube.iconic:iconic-base:$iconic_version")
+	include modImplementation("com.sindercube.iconic:iconic-custom-model-api:$iconic_custom_model_version")
 }
 
 processResources {

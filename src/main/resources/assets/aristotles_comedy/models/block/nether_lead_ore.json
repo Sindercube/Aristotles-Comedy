@@ -1,6 +1,0 @@
-{
-	"parent": "minecraft:block/cube_all",
-	"textures": {
-		"all": "aristotles_comedy:block/nether_lead_ore"
-	}
-}

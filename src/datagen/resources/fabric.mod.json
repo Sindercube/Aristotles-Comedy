@@ -1,0 +1,9 @@
+{
+	"schemaVersion": 1,
+	"id": "aristotles_comedy_datagen",
+	"version": "0",
+
+	"entrypoints": {
+		"fabric-datagen": [ "com.sindercube.aristotlesComedy.datagen.AristotlesComedyDataGenerator" ]
+	}
+}
