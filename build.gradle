@@ -41,6 +41,7 @@ dependencies {
 }
 
 processResources {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 	filesMatching("fabric.mod.json") {
 		expand project.properties
 	}

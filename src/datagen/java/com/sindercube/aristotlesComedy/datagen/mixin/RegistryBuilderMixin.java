@@ -5,6 +5,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+// this is such a monkey patch lmao
+
 @Mixin(RegistryBuilder.class)
 public class RegistryBuilderMixin {
 

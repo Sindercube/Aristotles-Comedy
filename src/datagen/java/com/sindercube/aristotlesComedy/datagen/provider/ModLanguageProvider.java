@@ -31,7 +31,7 @@ public class ModLanguageProvider extends FabricLanguageProvider {
 	@Override
 	public void generateTranslations(RegistryWrapper.WrapperLookup lookup, TranslationBuilder builder) {
 		generateRegistryTranslations(lookup, builder);
-//			generateTagTranslations(lookup, builder);
+//		generateTagTranslations(lookup, builder);
 	}
 
 	private static void generateRegistryTranslations(RegistryWrapper.WrapperLookup lookup, TranslationBuilder builder) {

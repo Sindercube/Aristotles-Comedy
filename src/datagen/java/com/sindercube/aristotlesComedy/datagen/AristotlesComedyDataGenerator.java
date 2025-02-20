@@ -2,6 +2,7 @@ package com.sindercube.aristotlesComedy.datagen;
 
 import com.sindercube.aristotlesComedy.AristotlesComedy;
 import com.sindercube.aristotlesComedy.datagen.provider.ModLanguageProvider;
+import com.sindercube.aristotlesComedy.datagen.provider.ModLootTableProvider;
 import com.sindercube.aristotlesComedy.datagen.provider.ModModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -12,10 +13,9 @@ public class AristotlesComedyDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator generator) {
 		FabricDataGenerator.Pack pack = generator.createPack();
-		try {
-			pack.addProvider(ModLanguageProvider::new);
-		} catch (Exception ignored) {}
+		pack.addProvider(ModLanguageProvider::new);
 		pack.addProvider(ModModelProvider::new);
+		pack.addProvider(ModLootTableProvider::new);
 	}
 
 	public static boolean ownsRegistry(RegistryEntry<?> entry) {

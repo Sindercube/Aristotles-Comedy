@@ -5,10 +5,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.AnvilBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.SnowBlock;
 import net.minecraft.data.client.*;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolItem;
 import net.minecraft.registry.Registries;
@@ -16,11 +14,25 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 
+import java.util.Map;
+
 public class ModModelProvider extends FabricModelProvider {
 
 	public ModModelProvider(FabricDataOutput output) {
 		super(output);
 	}
+
+	@FunctionalInterface
+	public interface BlockStateProvider {
+		void generate(BlockStateModelGenerator generate, Identifier id, Block block);
+	}
+
+	public static Map<Class<? extends Block>, BlockStateProvider> BLOCK_STATE_PROVIDERS = Map.of(
+		AnvilBlock.class, (generator, id, block) -> {
+			generator.registerAnvil(block);
+			generator.registerParentedItemModel(block, id);
+		}
+	);
 
 	@Override
 	public void generateBlockStateModels(BlockStateModelGenerator generator) {
@@ -30,7 +42,12 @@ public class ModModelProvider extends FabricModelProvider {
 	}
 
 	public void generateBlockModel(BlockStateModelGenerator generator, RegistryEntry<Block> entry) {
+		Identifier id = entry.getKeyOrValue().left().orElseThrow().getValue();
 		Block block = entry.value();
+
+		BLOCK_STATE_PROVIDERS.forEach((clazz, provider) -> {
+			if (clazz.isInstance(block)) provider.generate(generator, id, block);
+		});
 
 		if (block instanceof AnvilBlock) {
 			generator.registerAnvil(block);
@@ -43,7 +60,7 @@ public class ModModelProvider extends FabricModelProvider {
 	}
 
 	public void generateLayeredBlockModels(BlockStateModelGenerator generator, RegistryEntry<Block> entry) {
-		Identifier id = entry.getKey().orElseThrow().getValue().withPrefixedPath("block/");
+		Identifier id = entry.getKey().orElseThrow().getValue().withPrefixedPath("entry/");
 		Block block = entry.value();
 
 		VariantsBlockStateSupplier supplier = VariantsBlockStateSupplier.create(block).coordinate(BlockStateVariantMap.create(Properties.LAYERS).register(height -> {

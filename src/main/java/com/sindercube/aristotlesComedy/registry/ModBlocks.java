@@ -1,6 +1,7 @@
 package com.sindercube.aristotlesComedy.registry;
 
 import com.sindercube.aristotlesComedy.AristotlesComedy;
+import com.sindercube.aristotlesComedy.content.block.NumitronBlock;
 import com.sindercube.aristotlesComedy.content.block.PhilosopherStoneBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -27,6 +28,7 @@ public class ModBlocks {
 	public static Block PHILOSOPHERS_STONE = register("philosophers_stone", PhilosopherStoneBlock::new, AbstractBlock.Settings.create());
 	public static Block ASH = register("ash", SnowBlock::new, AbstractBlock.Settings.copy(Blocks.SNOW));
 	public static Block ASH_BLOCK = register("ash_block", Block::new, AbstractBlock.Settings.copy(Blocks.SNOW_BLOCK));
+	public static Block NUMITRON = register("numitron", NumitronBlock::new, AbstractBlock.Settings.copy(Blocks.GLASS).luminance(s -> 2));
 
 	public static Block register(String name, Function<AbstractBlock.Settings, Block> function, AbstractBlock.Settings settings) {
 		return register(name, function, settings, new Item.Settings());

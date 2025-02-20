@@ -18,6 +18,8 @@ jobs:
                   cache: "gradle"
             - name: Change Version
               run: sed -i 's/mod_version=.*/mod_version=${{ github.event.release.tag_name }}/g' gradle.properties
+            - name: Datagen
+              run: ./gradlew runDatagen
             - name: Build
               run: ./gradlew clean build
             - name: Publish
