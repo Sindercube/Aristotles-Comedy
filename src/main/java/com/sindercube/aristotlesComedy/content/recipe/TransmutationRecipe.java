@@ -2,18 +2,19 @@ package com.sindercube.aristotlesComedy.content.recipe;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.sindercube.aristotlesComedy.registry.ModRecipeTypes;
+import com.sindercube.aristotlesComedy.registry.ACRecipeTypes;
 import com.sindercube.aristotlesComedy.util.CodecRecipeSerializer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.*;
 import net.minecraft.recipe.input.RecipeInput;
+import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.world.World;
 
 public record TransmutationRecipe (
 	Ingredient ingredient,
 	ItemStack result
-) implements Recipe<RecipeInput> {
+) implements Recipe<SingleStackRecipeInput> {
 
 	public static final MapCodec<TransmutationRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
 		Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("ingredient").forGetter(TransmutationRecipe::ingredient),
@@ -24,7 +25,7 @@ public record TransmutationRecipe (
 
 	@Override
 	public RecipeType<?> getType() {
-		return ModRecipeTypes.TRANSMUTATION;
+		return ACRecipeTypes.TRANSMUTATION;
 	}
 
 	@Override
@@ -34,12 +35,12 @@ public record TransmutationRecipe (
 
 
     @Override
-    public boolean matches(RecipeInput input, World world) {
+    public boolean matches(SingleStackRecipeInput input, World world) {
         return false;
     }
 
     @Override
-    public ItemStack craft(RecipeInput input, RegistryWrapper.WrapperLookup lookup) {
+    public ItemStack craft(SingleStackRecipeInput input, RegistryWrapper.WrapperLookup lookup) {
         return null;
     }
 

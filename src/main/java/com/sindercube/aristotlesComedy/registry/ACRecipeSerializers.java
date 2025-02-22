@@ -8,7 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-public class ModRecipeSerializers {
+public class ACRecipeSerializers {
 
 	public static void init() {}
 

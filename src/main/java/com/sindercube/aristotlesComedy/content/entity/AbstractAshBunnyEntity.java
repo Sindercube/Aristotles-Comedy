@@ -1,8 +1,8 @@
 package com.sindercube.aristotlesComedy.content.entity;
 
 import com.sindercube.aristotlesComedy.content.entity.controls.HoppingMoveControl;
-import com.sindercube.aristotlesComedy.registry.ModBlocks;
-import com.sindercube.aristotlesComedy.registry.ModSoundEvents;
+import com.sindercube.aristotlesComedy.registry.ACBlocks;
+import com.sindercube.aristotlesComedy.registry.ACSoundEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SnowBlock;
 import net.minecraft.entity.Entity;
@@ -87,7 +87,7 @@ public abstract class AbstractAshBunnyEntity extends PassiveEntity implements Ho
 			0.25, 0.25, 0.25,
 			0.1
 		);
-		world.playSound(this, this.getBlockPos(), ModSoundEvents.ENTITY_ASH_BUNNY_POOF, SoundCategory.NEUTRAL, 1, 1);
+		world.playSound(this, this.getBlockPos(), ACSoundEvents.ENTITY_ASH_BUNNY_POOF, SoundCategory.NEUTRAL, 1, 1);
 		this.placeAshLayer();
 	}
 
@@ -97,8 +97,8 @@ public abstract class AbstractAshBunnyEntity extends PassiveEntity implements Ho
 		BlockState state = world.getBlockState(pos);
 		if (!state.getFluidState().isEmpty()) return;
 
-		if (!state.isOf(ModBlocks.ASH)) {
-			state = ModBlocks.ASH.getDefaultState();
+		if (!state.isOf(ACBlocks.ASH)) {
+			state = ACBlocks.ASH.getDefaultState();
 		} else {
 			int layers = state.get(Properties.LAYERS);
 			layers = Math.min(layers + 1, SnowBlock.MAX_LAYERS);

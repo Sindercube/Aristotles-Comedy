@@ -1,6 +1,7 @@
 package com.sindercube.aristotlesComedy;
 
-import com.sindercube.aristotlesComedy.registry.ModBiomes;
+import com.sindercube.aristotlesComedy.content.humor.Humors;
+import com.sindercube.aristotlesComedy.registry.ACBiomes;
 import com.sindercube.aristotlesComedy.registry.*;
 import net.fabricmc.api.ModInitializer;
 
@@ -19,19 +20,22 @@ public class AristotlesComedy implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ModRegistryKeys.init();
-		ModRegistries.init();
+		ACRegistryKeys.init();
+		ACRegistries.init();
 
-		ModRecipeTypes.init();
-		ModRecipeSerializers.init();
+		ACRecipeTypes.init();
+		ACRecipeSerializers.init();
 
-		ModHumors.init();
-		ModBlocks.init();
-		ModItems.init();
-		ModEntityTypes.init();
+		ACBlockEntityComponents.init();
 
-		ModPlacedFeatures.init();
-		ModBiomes.init();
+		Humors.init();
+		ACBlocks.init();
+		ACItems.init();
+		ACEntityTypes.init();
+		ACBlockEntities.init();
+
+		ACPlacedFeatures.init();
+		ACBiomes.init();
 	}
 
 }

@@ -5,7 +5,7 @@ import com.sindercube.aristotlesComedy.content.humor.Humor;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 
-public class ModRegistryKeys {
+public class ACRegistryKeys {
 
     public static void init() {}
 

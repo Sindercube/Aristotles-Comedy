@@ -7,7 +7,7 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
-public class ModSoundEvents {
+public class ACSoundEvents {
 
 	public static void init() {}
 

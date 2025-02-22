@@ -17,14 +17,14 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
-public class ModLanguageProvider extends FabricLanguageProvider {
+public class ACLanguageProvider extends FabricLanguageProvider {
 
 	public static final List<RegistryKey<?>> REGISTRY_BLACKLIST = List.of(
 		RegistryKeys.RECIPE_SERIALIZER,
 		RegistryKeys.BIOME
 	);
 
-	public ModLanguageProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> lookup) {
+	public ACLanguageProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> lookup) {
 		super(output, lookup);
 	}
 
@@ -36,7 +36,7 @@ public class ModLanguageProvider extends FabricLanguageProvider {
 
 	private static void generateRegistryTranslations(RegistryWrapper.WrapperLookup lookup, TranslationBuilder builder) {
 		lookup.streamAllRegistryKeys()
-			.filter(ModLanguageProvider::keyIsNotBlacklisted)
+			.filter(ACLanguageProvider::keyIsNotBlacklisted)
 			.map(lookup::getOptionalWrapper)
 			.filter(Optional::isPresent)
 			.map(Optional::get)
@@ -57,7 +57,7 @@ public class ModLanguageProvider extends FabricLanguageProvider {
 		String key = id.toTranslationKey(dataType);
 		String translation = Arrays
 			.stream(id.getPath().split("([_.])"))
-			.map(ModLanguageProvider::toUpperCase)
+			.map(ACLanguageProvider::toUpperCase)
 			.collect(Collectors.joining(" "));
 		builder.add(key, translation);
 	}
@@ -79,7 +79,7 @@ public class ModLanguageProvider extends FabricLanguageProvider {
 		String key = id.toTranslationKey("tag." + tag.registry().getValue().getPath());
 		String translation = Arrays
 			.stream(id.getPath().split("([_.])"))
-			.map(ModLanguageProvider::toUpperCase)
+			.map(ACLanguageProvider::toUpperCase)
 			.collect(Collectors.joining(" "));
 		builder.add(key, translation);
 	}

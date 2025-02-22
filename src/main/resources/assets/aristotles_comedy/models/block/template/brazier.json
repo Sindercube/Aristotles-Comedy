@@ -1,0 +1,8 @@
+{
+	"texture_size": [64, 64],
+	"textures": {
+		"#base": "#base",
+		"#fire": "#fire"
+	},
+	"elements": []
+}

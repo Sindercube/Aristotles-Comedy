@@ -4,7 +4,7 @@ import com.sindercube.aristotlesComedy.content.entity.ai.goal.HoppingFaceTowardT
 import com.sindercube.aristotlesComedy.content.entity.ai.goal.HoppingMoveGoal;
 import com.sindercube.aristotlesComedy.content.entity.ai.goal.HoppingRandomLookGoal;
 import com.sindercube.aristotlesComedy.content.entity.controls.HoppingMoveControl;
-import com.sindercube.aristotlesComedy.registry.ModEntityTypes;
+import com.sindercube.aristotlesComedy.registry.ACEntityTypes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -29,7 +29,7 @@ public class AshBunnyEntity extends AbstractAshBunnyEntity {
 
 	@Override
 	public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-		return ModEntityTypes.ASH_BUNNY.create(world);
+		return ACEntityTypes.ASH_BUNNY.create(world);
 	}
 
 	@Override

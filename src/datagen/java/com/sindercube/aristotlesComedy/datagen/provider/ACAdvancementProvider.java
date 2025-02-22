@@ -12,9 +12,9 @@ import net.minecraft.util.Identifier;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-public class ModAdvancementProvider extends FabricAdvancementProvider {
+public class ACAdvancementProvider extends FabricAdvancementProvider {
 
-	protected ModAdvancementProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+	protected ACAdvancementProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
 		super(output, registryLookup);
 	}
 

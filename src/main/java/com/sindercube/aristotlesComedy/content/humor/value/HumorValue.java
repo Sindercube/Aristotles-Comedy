@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.mojang.serialization.codecs.UnboundedMapCodec;
 import com.sindercube.aristotlesComedy.content.humor.Humor;
-import com.sindercube.aristotlesComedy.registry.ModRegistries;
+import com.sindercube.aristotlesComedy.registry.ACRegistries;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -18,7 +18,7 @@ public record HumorValue (
 ) {
 
 	public static UnboundedMapCodec<RegistryEntry<Humor>, Integer> VALUES_CODEC = Codec.unboundedMap(
-		ModRegistries.HUMOR.getEntryCodec(), Codec.INT
+		ACRegistries.HUMOR.getEntryCodec(), Codec.INT
 	);
 
 	public static Codec<HumorValue> CODEC = RecordCodecBuilder.create(instance -> instance.group(

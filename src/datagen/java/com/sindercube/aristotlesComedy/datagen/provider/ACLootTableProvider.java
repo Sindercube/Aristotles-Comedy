@@ -9,9 +9,9 @@ import net.minecraft.registry.entry.RegistryEntry;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModLootTableProvider extends FabricBlockLootTableProvider {
+public class ACLootTableProvider extends FabricBlockLootTableProvider {
 
-	public ModLootTableProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> lookup) {
+	public ACLootTableProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> lookup) {
 		super(output, lookup);
 	}
 

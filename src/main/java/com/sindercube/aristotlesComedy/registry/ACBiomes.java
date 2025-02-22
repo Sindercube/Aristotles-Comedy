@@ -7,7 +7,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 
-public class ModBiomes {
+public class ACBiomes {
 
 	public static void init() {
 		NetherBiomes.addNetherBiome(

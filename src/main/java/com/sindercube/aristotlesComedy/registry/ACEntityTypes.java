@@ -12,7 +12,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
-public class ModEntityTypes {
+public class ACEntityTypes {
 
 	public static void init() {
 		FabricDefaultAttributeRegistry.register(ASH_BUNNY, AshBunnyEntity.createAshBunnyAttributes());
