@@ -35,13 +35,15 @@ public class ACModelProvider extends FabricModelProvider {
 	);
 
 	public static void registerBrazier(BlockStateModelGenerator generator, Block block, Identifier id) {
+		Identifier blockId = id.withPrefixedPath("block/");
+
 		Model litModel = new Model(
 			Optional.of(AristotlesComedy.of("block/template/brazier")),
 			Optional.empty(),
 			TextureKey.FIRE
 		);
 		TextureMap litTextures = new TextureMap()
-			.put(TextureKey.FIRE, id.withPrefixedPath("block/").withSuffixedPath("_fire"));
+			.put(TextureKey.FIRE, blockId.withSuffixedPath("_fire"));
 		litModel.upload(block, litTextures, generator.modelCollector);
 
 		Model offModel = new Model(
@@ -50,16 +52,16 @@ public class ACModelProvider extends FabricModelProvider {
 			TextureKey.FIRE
 		);
 		TextureMap offTextures = new TextureMap()
-			.put(TextureKey.FIRE, AristotlesComedy.of("empty"));
+			.put(TextureKey.FIRE, AristotlesComedy.of("block/empty"));
 		offModel.upload(block, "_off", offTextures, generator.modelCollector);
 
 		generator.blockStateCollector.accept(
 			VariantsBlockStateSupplier.create(block).coordinate(
 				BlockStateVariantMap.create(Properties.LIT)
 					.register(true, BlockStateVariant.create()
-						.put(VariantSettings.MODEL, id))
+						.put(VariantSettings.MODEL, blockId))
 					.register(false, BlockStateVariant.create()
-						.put(VariantSettings.MODEL, id.withPrefixedPath("block/").withSuffixedPath("_off")))
+						.put(VariantSettings.MODEL, blockId.withSuffixedPath("_off")))
 			)
 		);
 
