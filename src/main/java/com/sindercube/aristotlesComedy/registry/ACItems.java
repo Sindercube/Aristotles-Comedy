@@ -28,6 +28,7 @@ public class ACItems {
 	public static final Item SILVER_INGOT = register("silver_ingot");
 	public static final Item PLATINUM_INGOT = register("platinum_ingot");
 	public static final Item MERCURY_INGOT = register("mercury_ingot");
+	public static final Item BRONZE_INGOT = register("bronze_ingot");
 
 	public static final Item ASH_SOUP = register("ash_soup", Item::new, new Item.Settings()
 		.food(ASH_SOUP_FOOD_COMPONENT)

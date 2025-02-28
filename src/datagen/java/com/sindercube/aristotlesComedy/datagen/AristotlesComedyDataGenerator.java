@@ -1,9 +1,7 @@
 package com.sindercube.aristotlesComedy.datagen;
 
 import com.sindercube.aristotlesComedy.AristotlesComedy;
-import com.sindercube.aristotlesComedy.datagen.provider.ACLanguageProvider;
-import com.sindercube.aristotlesComedy.datagen.provider.ACLootTableProvider;
-import com.sindercube.aristotlesComedy.datagen.provider.ACModelProvider;
+import com.sindercube.aristotlesComedy.datagen.provider.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -16,6 +14,8 @@ public class AristotlesComedyDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ACLanguageProvider::new);
 		pack.addProvider(ACModelProvider::new);
 		pack.addProvider(ACLootTableProvider::new);
+		pack.addProvider(ACAdvancementProvider::new);
+		pack.addProvider(ACRecipeProvider::new);
 	}
 
 	public static boolean ownsRegistry(RegistryEntry<?> entry) {

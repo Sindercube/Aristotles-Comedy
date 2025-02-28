@@ -1,10 +1,7 @@
 package com.sindercube.aristotlesComedy.registry;
 
 import com.sindercube.aristotlesComedy.AristotlesComedy;
-import com.sindercube.aristotlesComedy.content.block.AlembicBlock;
-import com.sindercube.aristotlesComedy.content.block.BrazierBlock;
-import com.sindercube.aristotlesComedy.content.block.NumitronBlock;
-import com.sindercube.aristotlesComedy.content.block.PhilosopherStoneBlock;
+import com.sindercube.aristotlesComedy.content.block.*;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -34,6 +31,8 @@ public class ACBlocks {
 	public static Block ASH = register("ash", SnowBlock::new, AbstractBlock.Settings.copy(Blocks.SNOW));
 	public static Block ASH_BLOCK = register("ash_block", Block::new, AbstractBlock.Settings.copy(Blocks.SNOW_BLOCK));
 	public static Block NUMITRON = register("numitron", NumitronBlock::new, AbstractBlock.Settings.copy(Blocks.GLASS).luminance(s -> 2));
+
+	public static Block ATHANOR = register("athanor", AthanorBlock::new, AbstractBlock.Settings.copy(Blocks.FURNACE));
 	public static Block ALEMBIC = register("alembic", AlembicBlock::new, AbstractBlock.Settings.copy(Blocks.GLASS));
 
 	public static Block register(String name, AbstractBlock.Settings settings) {
