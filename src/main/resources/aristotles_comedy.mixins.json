@@ -3,7 +3,11 @@
 	"package": "com.sindercube.aristotlesComedy.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"FlintAndSteelItemMixin"
+		"FlintAndSteelItemMixin",
+		"MaxStackSizeMixins$DataComponentTypesMixin",
+		"MaxStackSizeMixins$InventoryMixin",
+		"MaxStackSizeMixins$ItemCommandMixin",
+		"MaxStackSizeMixins$ItemStackMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

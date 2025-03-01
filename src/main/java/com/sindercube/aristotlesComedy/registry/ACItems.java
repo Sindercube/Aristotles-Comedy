@@ -19,7 +19,12 @@ public class ACItems {
 	public static final FoodComponent ASH_SOUP_FOOD_COMPONENT = new FoodComponent.Builder()
 		.nutrition(-2).saturationModifier(-0.2f).alwaysEdible().usingConvertsTo(Items.BOWL).build();
 
-    public static final Item RAW_TIN = register("raw_tin");
+	public static final Item RAW_ENXOFA = register("raw_enxofa", new Item.Settings().maxCount(960));
+	public static final Item RAW_SANGVIA = register("raw_sangvia", new Item.Settings().maxCount(960));
+	public static final Item RAW_MELOFA = register("raw_melofa", new Item.Settings().maxCount(960));
+	public static final Item RAW_APHENA = register("raw_aphena", new Item.Settings().maxCount(960));
+
+	public static final Item RAW_TIN = register("raw_tin");
 	public static final Item TIN_INGOT = register("tin_ingot");
 	public static final Item TIN_NUGGET = register("tin_nugget");
 	public static final Item RAW_LEAD = register("raw_lead");
@@ -40,6 +45,10 @@ public class ACItems {
 
 	public static Item register(String name, Function<Item.Settings, Item> function) {
 		return register(name, function, new Item.Settings());
+	}
+
+	public static Item register(String name, Item.Settings settings) {
+		return register(name, Item::new, settings);
 	}
 
 	public static Item register(String name, Function<Item.Settings, Item> function, Item.Settings settings) {
