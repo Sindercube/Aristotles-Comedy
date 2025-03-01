@@ -12,6 +12,11 @@ public class AristotlesComedyClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		ACEntityRenderers.init();
 		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+			ACBlocks.YELLOW_TRISMEGISTITE_CLUSTER,
+			ACBlocks.RED_TRISMEGISTITE_CLUSTER,
+			ACBlocks.BLUE_TRISMEGISTITE_CLUSTER,
+			ACBlocks.BLACK_TRISMEGISTITE_CLUSTER,
+
 			ACBlocks.BRAZIER,
 			ACBlocks.SOUL_BRAZIER
 		);

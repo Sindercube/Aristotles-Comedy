@@ -17,33 +17,60 @@ public class ACBlocks {
 
     public static void init() {}
 
-	public static Block DEEPSLATE_ZINC_ORE = register("deepslate_tin_ore", AbstractBlock.Settings.copy(Blocks.DEEPSLATE_COPPER_ORE));
-    public static Block TIN_ORE = register("tin_ore", AbstractBlock.Settings.copy(Blocks.COPPER_ORE));
-	public static Block NETHER_LEAD_ORE = register("nether_lead_ore", AbstractBlock.Settings.copy(Blocks.IRON_ORE));
+	public static final Block YELLOW_TRISMEGISTITE_BLOCK = register("yellow_trismegistite_block", AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
+	public static final Block RED_TRISMEGISTITE_BLOCK = register("red_trismegistite_block", AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
+	public static final Block BLUE_TRISMEGISTITE_BLOCK = register("blue_trismegistite_block", AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
+	public static final Block BLACK_TRISMEGISTITE_BLOCK = register("black_trismegistite_block", AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
 
-	public static Block LEAD_BARREL = register("lead_barrel", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.GOLD_BLOCK));
-	public static Block LEAD_BARS = register("lead_bars", PaneBlock::new, AbstractBlock.Settings.copy(Blocks.IRON_BARS));
-	public static Block BRAZIER = register("brazier", settings -> new BrazierBlock(true, settings), AbstractBlock.Settings.copy(Blocks.IRON_BARS));
-	public static Block SOUL_BRAZIER = register("soul_brazier", settings -> new BrazierBlock(false, settings), AbstractBlock.Settings.copy(Blocks.IRON_BARS));
+	public static final Block YELLOW_TRISMEGISTITE_CLUSTER = register("yellow_trismegistite_cluster", ClusterBlock::new, AbstractBlock.Settings.copy(Blocks.AMETHYST_CLUSTER));
+	public static final Block RED_TRISMEGISTITE_CLUSTER = register("red_trismegistite_cluster", ClusterBlock::new, AbstractBlock.Settings.copy(Blocks.AMETHYST_CLUSTER));
+	public static final Block BLUE_TRISMEGISTITE_CLUSTER = register("blue_trismegistite_cluster", ClusterBlock::new, AbstractBlock.Settings.copy(Blocks.AMETHYST_CLUSTER));
+	public static final Block BLACK_TRISMEGISTITE_CLUSTER = register("black_trismegistite_cluster", ClusterBlock::new, AbstractBlock.Settings.copy(Blocks.AMETHYST_CLUSTER));
 
-	public static Block SACRED_HEART = register("sacred_heart", PhilosopherStoneBlock::new, AbstractBlock.Settings.create());
-	public static Block PHILOSOPHERS_STONE = register("philosophers_stone", PhilosopherStoneBlock::new, AbstractBlock.Settings.create());
-	public static Block ASH = register("ash", SnowBlock::new, AbstractBlock.Settings.copy(Blocks.SNOW));
-	public static Block ASH_BLOCK = register("ash_block", Block::new, AbstractBlock.Settings.copy(Blocks.SNOW_BLOCK));
-	public static Block NUMITRON = register("numitron", NumitronBlock::new, AbstractBlock.Settings.copy(Blocks.GLASS).luminance(s -> 2));
+	public static final Block BUDDING_YELLOW_TRISMEGISTITE = register("budding_yellow_trismegistite",
+		settings -> new BuddingClusterBlock(YELLOW_TRISMEGISTITE_CLUSTER, settings),
+		AbstractBlock.Settings.copy(Blocks.BUDDING_AMETHYST)
+	);
+	public static final Block BUDDING_RED_TRISMEGISTITE = register("budding_red_trismegistite",
+		settings -> new BuddingClusterBlock(RED_TRISMEGISTITE_CLUSTER, settings),
+		AbstractBlock.Settings.copy(Blocks.BUDDING_AMETHYST)
+	);
+	public static final Block BUDDING_BLUE_TRISMEGISTITE = register("budding_blue_trismegistite",
+		settings -> new BuddingClusterBlock(BLUE_TRISMEGISTITE_CLUSTER, settings),
+		AbstractBlock.Settings.copy(Blocks.BUDDING_AMETHYST)
+	);
+	public static final Block BUDDING_BLACK_TRISMEGISTITE = register("budding_black_trismegistite",
+		settings -> new BuddingClusterBlock(BLACK_TRISMEGISTITE_CLUSTER, settings),
+		AbstractBlock.Settings.copy(Blocks.BUDDING_AMETHYST)
+	);
 
-	public static Block ATHANOR = register("athanor", AthanorBlock::new, AbstractBlock.Settings.copy(Blocks.FURNACE));
-	public static Block ALEMBIC = register("alembic", AlembicBlock::new, AbstractBlock.Settings.copy(Blocks.GLASS));
+	public static final Block DEEPSLATE_ZINC_ORE = register("deepslate_tin_ore", AbstractBlock.Settings.copy(Blocks.DEEPSLATE_COPPER_ORE));
+    public static final Block TIN_ORE = register("tin_ore", AbstractBlock.Settings.copy(Blocks.COPPER_ORE));
+	public static final Block NETHER_LEAD_ORE = register("nether_lead_ore", AbstractBlock.Settings.copy(Blocks.IRON_ORE));
 
-	public static Block register(String name, AbstractBlock.Settings settings) {
+	public static final Block LEAD_BARREL = register("lead_barrel", PillarBlock::new, AbstractBlock.Settings.copy(Blocks.GOLD_BLOCK));
+	public static final Block LEAD_BARS = register("lead_bars", PaneBlock::new, AbstractBlock.Settings.copy(Blocks.IRON_BARS));
+	public static final Block BRAZIER = register("brazier", settings -> new BrazierBlock(true, settings), AbstractBlock.Settings.copy(Blocks.IRON_BARS));
+	public static final Block SOUL_BRAZIER = register("soul_brazier", settings -> new BrazierBlock(false, settings), AbstractBlock.Settings.copy(Blocks.IRON_BARS));
+
+	public static final Block SACRED_HEART = register("sacred_heart", PhilosopherStoneBlock::new, AbstractBlock.Settings.create());
+	public static final Block PHILOSOPHERS_STONE = register("philosophers_stone", PhilosopherStoneBlock::new, AbstractBlock.Settings.create());
+	public static final Block ASH = register("ash", SnowBlock::new, AbstractBlock.Settings.copy(Blocks.SNOW));
+	public static final Block ASH_BLOCK = register("ash_block", Block::new, AbstractBlock.Settings.copy(Blocks.SNOW_BLOCK));
+	public static final Block NUMITRON = register("numitron", NumitronBlock::new, AbstractBlock.Settings.copy(Blocks.GLASS).luminance(s -> 2));
+
+	public static final Block ATHANOR = register("athanor", AthanorBlock::new, AbstractBlock.Settings.copy(Blocks.FURNACE));
+	public static final Block ALEMBIC = register("alembic", AlembicBlock::new, AbstractBlock.Settings.copy(Blocks.GLASS));
+
+	public static final Block register(String name, AbstractBlock.Settings settings) {
 		return register(name, Block::new, settings);
 	}
 
-	public static Block register(String name, Function<AbstractBlock.Settings, Block> function, AbstractBlock.Settings settings) {
+	public static final Block register(String name, Function<AbstractBlock.Settings, Block> function, AbstractBlock.Settings settings) {
 		return register(name, function, settings, new Item.Settings());
 	}
 
-	public static Block register(String name, Function<AbstractBlock.Settings, Block> function, AbstractBlock.Settings blockSettings, Item.Settings itemSettings) {
+	public static final Block register(String name, Function<AbstractBlock.Settings, Block> function, AbstractBlock.Settings blockSettings, Item.Settings itemSettings) {
         Identifier id = AristotlesComedy.of(name);
         RegistryKey<Block> blockKey = RegistryKey.of(RegistryKeys.BLOCK, id);
         Block block = function.apply(blockSettings);

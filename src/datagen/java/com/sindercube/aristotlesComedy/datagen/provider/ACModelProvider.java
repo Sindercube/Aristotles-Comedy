@@ -1,7 +1,9 @@
 package com.sindercube.aristotlesComedy.datagen.provider;
 
+import com.google.common.collect.Multimap;
 import com.sindercube.aristotlesComedy.AristotlesComedy;
 import com.sindercube.aristotlesComedy.content.block.BrazierBlock;
+import com.sindercube.aristotlesComedy.content.block.ClusterBlock;
 import com.sindercube.aristotlesComedy.datagen.AristotlesComedyDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -14,8 +16,7 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class ACModelProvider extends FabricModelProvider {
 
@@ -28,11 +29,15 @@ public class ACModelProvider extends FabricModelProvider {
 		void generate(BlockStateModelGenerator generate, Block block, Identifier id);
 	}
 
-	public static Map<Class<? extends Block>, BlockStateProvider> BLOCK_STATE_PROVIDERS = Map.of(
-		BrazierBlock.class, ACModelProvider::registerBrazier,
-		PillarBlock.class, ACModelProvider::registerPillar,
-		SnowBlock.class, ACModelProvider::registerLayeredModel
-	);
+	public static Map<Class<? extends Block>, BlockStateProvider> BLOCK_STATE_PROVIDERS = new LinkedHashMap<>();
+
+	static {
+		BLOCK_STATE_PROVIDERS.put(BrazierBlock.class, ACModelProvider::registerBrazier);
+		BLOCK_STATE_PROVIDERS.put(PillarBlock.class, ACModelProvider::registerPillar);
+		BLOCK_STATE_PROVIDERS.put(SnowBlock.class, ACModelProvider::registerLayered);
+		BLOCK_STATE_PROVIDERS.put(ClusterBlock.class, ACModelProvider::registerCluster);
+		BLOCK_STATE_PROVIDERS.put(Block.class, ACModelProvider::registerBlock);
+	}
 
 	public static void registerBrazier(BlockStateModelGenerator generator, Block block, Identifier id) {
 		Identifier blockId = id.withPrefixedPath("block/");
@@ -73,7 +78,7 @@ public class ACModelProvider extends FabricModelProvider {
 		generator.registerParentedItemModel(block, id);
 	}
 
-	public static void registerLayeredModel(BlockStateModelGenerator generator, Block block, Identifier id) {
+	public static void registerLayered(BlockStateModelGenerator generator, Block block, Identifier id) {
 		Identifier blockId = id.withPrefixedPath("block/");
 		VariantsBlockStateSupplier supplier = VariantsBlockStateSupplier.create(block).coordinate(BlockStateVariantMap.create(Properties.LAYERS).register(height -> {
 			BlockStateVariant variant = BlockStateVariant.create();
@@ -88,6 +93,29 @@ public class ACModelProvider extends FabricModelProvider {
 		generator.registerParentedItemModel(block, blockId.withSuffixedPath("/height/2"));
 	}
 
+	public static void registerCluster(BlockStateModelGenerator generator, Block block, Identifier id) {
+		BlockStateVariant variant = BlockStateVariant.create()
+			.put(VariantSettings.MODEL, Models.CROSS.upload(block, TextureMap.cross(block), generator.modelCollector));
+
+		BlockStateVariantMap stageVariantMap = BlockStateVariantMap.create(ClusterBlock.STAGE).register(i -> {
+			Identifier identifier = generator.createSubModel(block, "/" + i, Models.CROSS, TextureMap::cross);
+			return BlockStateVariant.create().put(VariantSettings.MODEL, identifier);
+		});
+
+		VariantsBlockStateSupplier supplier = VariantsBlockStateSupplier
+			.create(block, variant)
+			.coordinate(generator.createUpDefaultFacingVariantMap())
+			.coordinate(stageVariantMap);
+		generator.blockStateCollector.accept(supplier);
+
+		Models.GENERATED.upload(id.withPrefixedPath("item/"), TextureMap.layer0(id.withPrefixedPath("block/").withSuffixedPath("/0")), generator.modelCollector);
+	}
+
+	public static void registerBlock(BlockStateModelGenerator generator, Block block, Identifier id) {
+		generator.registerSimpleCubeAll(block);
+		generator.registerParentedItemModel(block, id.withPrefixedPath("block/"));
+	}
+
 	@Override
 	public void generateBlockStateModels(BlockStateModelGenerator generator) {
 		Registries.BLOCK.streamEntries()
@@ -99,14 +127,19 @@ public class ACModelProvider extends FabricModelProvider {
 		Block block = entry.value();
 		Identifier id = entry.getKeyOrValue().left().orElseThrow().getValue();
 
-		BLOCK_STATE_PROVIDERS.forEach((clazz, provider) -> {
-			if (clazz.isInstance(block)) provider.generate(generator, block, id);
-		});
-
-		if (block.getClass() == Block.class) {
-			generator.registerSimpleCubeAll(block);
-			generator.registerParentedItemModel(block, id);
+		for (Map.Entry<Class<? extends Block>, BlockStateProvider> mapEntry : BLOCK_STATE_PROVIDERS.entrySet()) {
+			Class<? extends Block> clazz = mapEntry.getKey();
+			BlockStateProvider provider = mapEntry.getValue();
+			if (clazz.isInstance(block)) {
+				provider.generate(generator, block, id);
+				break;
+			}
 		}
+
+//		if (block.getClass() == Block.class) {
+//			generator.registerSimpleCubeAll(block);
+//			generator.registerParentedItemModel(block, id);
+//		}
 	}
 
 	@Override
